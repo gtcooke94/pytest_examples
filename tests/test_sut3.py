@@ -40,11 +40,3 @@ def test_hello_override_mock():
 def test_hello_override_mock_different_import():
     with mock.patch("mod3.sut3.return_name", side_effect=mock_return_name):
         assert "Hello TEST" == hello()
-
-
-@pytest.fixture()
-def override_default_name():
-    hold_default_name = mod.constants.DEFAULT_NAME
-    mod.sut.DEFAULT_NAME = "TEST"
-    yield
-    mod.sut.DEFAULT_NAME = hold_default_name

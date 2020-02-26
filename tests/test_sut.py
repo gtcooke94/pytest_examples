@@ -1,5 +1,7 @@
 import mod
 from mod import sut
+from mod.sut import hello
+
 import mock
 import pytest
 
@@ -8,6 +10,9 @@ def test_hello():
 
 def test_hello_override(override_default_name):
     assert "Hello TEST" == sut.hello()
+
+def test_hello_override_different_import(override_default_name):
+    assert "Hello TEST" == hello()
 
 def test_hello_again():
     assert "Hello GREG" == sut.hello()
